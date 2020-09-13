@@ -44,3 +44,4 @@ E:\Projects\OnLineClothing\bin\Debug\netcoreapp3.1\Pomelo.JsonObject.dll
 E:\Projects\OnLineClothing\obj\Debug\netcoreapp3.1\OnLineClothing.Views.pdb
 E:\Projects\OnLineClothing\obj\Debug\netcoreapp3.1\OnLineClothing.csproj.CopyComplete
 E:\Projects\OnLineClothing\obj\Debug\netcoreapp3.1\OnLineClothing.genruntimeconfig.cache
+E:\Projects\OnLineClothing\obj\Debug\netcoreapp3.1\Razor\Views\Item\Index.cshtml.g.cs

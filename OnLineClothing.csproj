@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="wwwroot\Images\Hats\BucketHat.png" />
+    <None Include="wwwroot\Images\Hat\BucketHat.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -13,9 +13,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\Images\Shoes\" />
+    <Folder Include="wwwroot\Images\Shoe\" />
     <Folder Include="wwwroot\Images\Pants\" />
-    <Folder Include="wwwroot\Images\Shirts\" />
+    <Folder Include="wwwroot\Images\Shirt\" />
   </ItemGroup>
 
 </Project>
