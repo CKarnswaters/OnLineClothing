@@ -1,0 +1,17 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace OnLineClothing.Models
+{
+    public class Cart
+    {
+        public int ID { get; set; }
+        public int LoginID { get; set; }
+        public int ItemID { get; set; }
+        public int Quantity { get; set; } 
+        public DateTime OrderDate { get; set; }
+        public decimal Total { get; set; }
+    }
+}
