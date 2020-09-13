@@ -1,0 +1,22 @@
+﻿@model IEnumerable<OnLineClothing.ViewModels.ItemDisplay>
+
+@{
+    <table>
+        @foreach(var item in Model)
+        {
+            <tr>
+                <td>
+                    <img width="200" height="200" alt="@item.item.Image" src="~/Images/@item.category.Category/@item.item.Image" />
+                </td>
+                <td style="padding-left: 50px;">
+                    <h2>@item.item.Title - $@item.item.Price</h2>
+                    <p>@item.item.ItemDescription</p>
+                    <div style="text-align:right;">
+                        <img  src="~/Images/Utility/addtocart.png" alt="Add To Cart" />
+                    </div>
+                </td>
+            </tr>
+        }
+    </table>
+}
+
