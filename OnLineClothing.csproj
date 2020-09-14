@@ -13,7 +13,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\Images\Shoe\" />
     <Folder Include="wwwroot\Images\Pants\" />
     <Folder Include="wwwroot\Images\Shirt\" />
   </ItemGroup>

@@ -19,6 +19,8 @@ namespace OnLineClothing.Controllers
 
         public IActionResult Index(int id)
         {
+
+            //Join the items and categories table and place it in the ItemDisplay view model, then store the value in the variable to be passed to the View.
             var itemsViewModel = from i in _context.Items
                                  join c in _context.Categories on i.CategoryID equals c.ID
                                  where i.CategoryID == id
