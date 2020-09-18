@@ -17,6 +17,7 @@ namespace OnLineClothing.Controllers
             _context = context;
         }
 
+        //The default display for any category of items, uses the ItemDisplay view model to combine the two tables
         public IActionResult Index(int id)
         {
 
