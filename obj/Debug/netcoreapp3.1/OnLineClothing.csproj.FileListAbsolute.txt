@@ -46,3 +46,4 @@ E:\Projects\OnLineClothing\obj\Debug\netcoreapp3.1\OnLineClothing.csproj.CopyCom
 E:\Projects\OnLineClothing\obj\Debug\netcoreapp3.1\OnLineClothing.genruntimeconfig.cache
 E:\Projects\OnLineClothing\obj\Debug\netcoreapp3.1\Razor\Views\Item\Index.cshtml.g.cs
 E:\Projects\OnLineClothing\obj\Debug\netcoreapp3.1\Razor\Views\User\Index.cshtml.g.cs
+E:\Projects\OnLineClothing\obj\Debug\netcoreapp3.1\Razor\Views\User\Signup.cshtml.g.cs
