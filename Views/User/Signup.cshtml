@@ -1,0 +1,53 @@
+﻿@model OnLineClothing.ViewModels.UserDisplay
+
+<div class="login-wrapper">
+    <div id="loginFormContent">
+        <h1>Sign Up</h1>
+
+        @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "signupform" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <!--Rewrite using html.TextBoxFor methods-->
+            <div class="signup-input">
+                @Html.EditorFor(model => model.login.UserName, new { htmlAttributes = new { placeholder = "Username" } })
+                <div>@Html.ValidationMessageFor(model => model.login.UserName, "", new { @class = "text-danger" })</div>
+                <p class="text-danger">@ViewBag.DuplicateUsername</p>
+            </div>
+            <div class="signup-input">
+                @Html.EditorFor(model => model.login.PasswordHash, new { htmlAttributes = new { placeholder = "Password", type = "password" } })
+                <div>@Html.ValidationMessageFor(model => model.login.PasswordHash, "", new { @class = "text-danger" })</div>
+                <p class="text-danger">@ViewBag.ComplexPassword</p>
+            </div>
+            <div class="signup-input">
+                @Html.EditorFor(model => model.users.FirstName, new { htmlAttributes = new { placeholder = "First Name" } })
+                <div>@Html.ValidationMessageFor(model => model.users.FirstName, "", new { @class = "text-danger" })</div>
+            </div>
+
+            <div class="signup-input">
+                @Html.EditorFor(model => model.users.LastName, new { htmlAttributes = new { placeholder = "Last Name" } })
+                <div>@Html.ValidationMessageFor(model => model.users.LastName, "", new { @class = "text-danger" })</div> 
+            </div>
+            <div class="signup-input">
+                @Html.EditorFor(model => model.users.Address, new { htmlAttributes = new { placeholder = "Address" } })
+                <div>@Html.ValidationMessageFor(model => model.users.Address, "", new { @class = "text-danger" })</div> 
+            </div>
+
+            <div class="signup-input">
+                @Html.EditorFor(model => model.users.City, new { htmlAttributes = new { placeholder = "City" } })
+                <div>@Html.ValidationMessageFor(model => model.users.City, "", new { @class = "text-danger" })</div> 
+            </div>
+            <div class="signup-input zipcode">
+                @Html.EditorFor(model => model.users.ZipCode, new { htmlAttributes = new { placeholder = "Zip Code" } })
+                <div>@Html.ValidationMessageFor(model => model.users.ZipCode, "", new { @class = "text-danger" })</div> 
+            </div>
+
+
+            <input id="signup-button" type="submit" class="login-submit fourth" value="Sign Up" asp-controller="User" asp-action="Signup">
+
+
+        }
+
+        <input type="button" class="login-submit" value="Return to Login" onclick="location.href='@Url.Action("Index", "User")'"/>
+    </div>
+</div>

@@ -1,11 +1,35 @@
-﻿<div class="login-form">
-    <h1 class="display-4">Login</h1>
-    <div class="form-group">
-        <label for="Username">Username: </label>
-        <input class="form-control form-input" id="Username" />
-        <label for="Password">Password: </label>
-        <input class="form-control form-input" id="Pasword" type="password" />
-        <button class="btn btn-primary" asp-controller="User" asp-action="Login">Login</button>
-        <a>Sign Up</a>
+﻿@model OnLineClothing.ViewModels.LoginViewModel
+<div class="login-wrapper">
+    <div id="loginFormContent">
+
+
+        <h1>Login</h1>
+
+        <!-- Login Form -->
+        @using (Html.BeginForm())
+        {
+
+            @Html.AntiForgeryToken();
+
+            @if (ViewBag.LoginFailed != null)
+            {
+                <p class="alert alert-danger">@ViewBag.LoginFailed</p>
+            }
+
+            <div class="login-input">
+                @Html.EditorFor(model => model.Username, new { htmlAttributes = new {id = "loginUsername", placeholder = "Username", data_val = "false" } })
+                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { id = "loginPassword", placeholder = "Password", data_val = "false", type = "password" } })
+            </div>
+            <input id="login-button" type="submit" class="login-submit fourth" value="Log In" asp-controller="User" asp-action="Index" formmethod="post" >
+            <input type="submit" class="login-submit fourth" value="Sign Up" asp-controller="User" asp-action="Signup" formmethod="get">
+
+
+        }
+
+        <!-- Remind Passowrd -->
+        <div id="loginFormFooter">
+            <a href="#">Forgot Password?</a>
+        </div>
+
     </div>
 </div>
