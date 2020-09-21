@@ -1,4 +1,6 @@
-﻿@model IEnumerable<OnLineClothing.ViewModels.UserDisplay>
+﻿@using Microsoft.AspNetCore.Http
+@model IEnumerable<OnLineClothing.ViewModels.BaseViewModel>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,24 +36,26 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Item" asp-action="Index" asp-route-id="4">Shoes</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="cart-nav-button nav-item">
                             <img src="~/Images/Utility/cart.png" />
+                                @if (Context.Session.GetString("LoginID") != null)
+                                {@foreach (var item in Model) {<p>(@item.cart.Count)</p> }}
                         </li>
                     </ul>
                 </div>
             </div>
 
-            @if (ViewData["LoginID"] == null)
+            @if (Context.Session.GetString("LoginID") == null)
             {
                 <div class="login-welcome-dialog">
                     <a asp-area="" asp-controller="User" asp-action="Index">Login / Sign Up</a>
                 </div>
             }
 
-            else
+            else if(Model.First().users.Count > 0)
             {
                 <div class="login-welcome-dialog">
-                    <a asp-area="" asp-controller="User" asp-action="Index">Welcome, @Model.Where(x=>x.login.ID == int.Parse(ViewData["LoginID"].ToString())).First().users.FirstName</a>
+                    <a asp-area="" asp-controller="User" asp-action="Index">Welcome, @Model.First().users[0].FirstName</a>
                 </div>
             }
         </nav>

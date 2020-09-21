@@ -11,15 +11,13 @@ using OnLineClothing.Models;
 
 namespace OnLineClothing.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly DataContext _context;
 
-        public HomeController(ILogger<HomeController> logger, DataContext context)
+        public HomeController(ILogger<HomeController> logger, DataContext context) : base(context)
         {
             _logger = logger;
-            _context = context;
         }
 
         public IActionResult Index()

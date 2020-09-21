@@ -1,4 +1,4 @@
-﻿@model OnLineClothing.ViewModels.UserDisplay
+﻿@model OnLineClothing.ViewModels.BaseViewModel
 
 <div class="login-wrapper">
     <div id="loginFormContent">
@@ -10,36 +10,36 @@
 
             <!--Rewrite using html.TextBoxFor methods-->
             <div class="signup-input">
-                @Html.EditorFor(model => model.login.UserName, new { htmlAttributes = new { placeholder = "Username" } })
-                <div>@Html.ValidationMessageFor(model => model.login.UserName, "", new { @class = "text-danger" })</div>
+                @Html.EditorFor(model => model.login[0].UserName, new { htmlAttributes = new { placeholder = "Username" } })
+                <div>@Html.ValidationMessageFor(model => model.login[0].UserName, "", new { @class = "text-danger" })</div>
                 <p class="text-danger">@ViewBag.DuplicateUsername</p>
             </div>
             <div class="signup-input">
-                @Html.EditorFor(model => model.login.PasswordHash, new { htmlAttributes = new { placeholder = "Password", type = "password" } })
-                <div>@Html.ValidationMessageFor(model => model.login.PasswordHash, "", new { @class = "text-danger" })</div>
+                @Html.EditorFor(model => model.login[0].PasswordHash, new { htmlAttributes = new { placeholder = "Password", type = "password" } })
+                <div>@Html.ValidationMessageFor(model => model.login[0].PasswordHash, "", new { @class = "text-danger" })</div>
                 <p class="text-danger">@ViewBag.ComplexPassword</p>
             </div>
             <div class="signup-input">
-                @Html.EditorFor(model => model.users.FirstName, new { htmlAttributes = new { placeholder = "First Name" } })
-                <div>@Html.ValidationMessageFor(model => model.users.FirstName, "", new { @class = "text-danger" })</div>
+                @Html.EditorFor(model => model.users[0].FirstName, new { htmlAttributes = new { placeholder = "First Name" } })
+                <div>@Html.ValidationMessageFor(model => model.users[0].FirstName, "", new { @class = "text-danger" })</div>
             </div>
 
             <div class="signup-input">
-                @Html.EditorFor(model => model.users.LastName, new { htmlAttributes = new { placeholder = "Last Name" } })
-                <div>@Html.ValidationMessageFor(model => model.users.LastName, "", new { @class = "text-danger" })</div> 
+                @Html.EditorFor(model => model.users[0].LastName, new { htmlAttributes = new { placeholder = "Last Name" } })
+                <div>@Html.ValidationMessageFor(model => model.users[0].LastName, "", new { @class = "text-danger" })</div> 
             </div>
             <div class="signup-input">
-                @Html.EditorFor(model => model.users.Address, new { htmlAttributes = new { placeholder = "Address" } })
-                <div>@Html.ValidationMessageFor(model => model.users.Address, "", new { @class = "text-danger" })</div> 
+                @Html.EditorFor(model => model.users[0].Address, new { htmlAttributes = new { placeholder = "Address" } })
+                <div>@Html.ValidationMessageFor(model => model.users[0].Address, "", new { @class = "text-danger" })</div> 
             </div>
 
             <div class="signup-input">
-                @Html.EditorFor(model => model.users.City, new { htmlAttributes = new { placeholder = "City" } })
-                <div>@Html.ValidationMessageFor(model => model.users.City, "", new { @class = "text-danger" })</div> 
+                @Html.EditorFor(model => model.users[0].City, new { htmlAttributes = new { placeholder = "City" } })
+                <div>@Html.ValidationMessageFor(model => model.users[0].City, "", new { @class = "text-danger" })</div> 
             </div>
             <div class="signup-input zipcode">
-                @Html.EditorFor(model => model.users.ZipCode, new { htmlAttributes = new { placeholder = "Zip Code" } })
-                <div>@Html.ValidationMessageFor(model => model.users.ZipCode, "", new { @class = "text-danger" })</div> 
+                @Html.EditorFor(model => model.users[0].ZipCode, new { htmlAttributes = new { placeholder = "Zip Code" } })
+                <div>@Html.ValidationMessageFor(model => model.users[0].ZipCode, "", new { @class = "text-danger" })</div> 
             </div>
 
 
