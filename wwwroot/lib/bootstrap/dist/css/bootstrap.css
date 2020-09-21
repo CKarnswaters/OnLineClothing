@@ -10094,6 +10094,24 @@ li.nav-item > img{
     font-weight: bold;
 }
 
+.cart-nav-button {
+    
+    width: 300px;
+    overflow: hidden;
+}
+
+.cart-nav-button img {
+    margin-right: 15px;
+    float: left;
+}
+
+.cart-nav-button p {
+    margin-left: 15px;
+    display: block;
+    margin: 2px 0 0 0;
+}
+
+
 /*Login form CSS - 
 
 "My User Login Page"

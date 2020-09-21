@@ -9,17 +9,15 @@ using OnLineClothing.ViewModels;
 using System.Reflection.Metadata.Ecma335;
 using System.Diagnostics.Eventing.Reader;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 
 namespace OnLineClothing.Controllers
 {
-    public class UserController : Controller
+    public class UserController : BaseController
     {
-
-        private readonly DataContext _context;
-
-        public UserController(DataContext context)
+        public UserController(DataContext context) : base(context)
         {
-            _context = context;
+
         }
 
 
@@ -30,22 +28,21 @@ namespace OnLineClothing.Controllers
         }
 
         [HttpPost]
-        public IActionResult Index(LoginViewModel login)
+        public IActionResult Index(LoginViewModel userLogin)
         {
             ViewBag.LoginFailed = "";
 
             var user = from u in _context.Login
-                       where u.UserName == login.Username
+                       where u.UserName == userLogin.Username
                        select u;
 
-
+            
 
             if (user.Count() > 0)
             {
-                if (user.First().PasswordHash == Utilities.Hash(login.Password + user.First().PasswordSalt))
+                if (user.First().PasswordHash == Utilities.Hash(userLogin.Password + user.First().PasswordSalt))
                 {
                     HttpContext.Session.SetString("LoginID", user.First().ID.ToString());
-                    ViewData["LoginID"] = HttpContext.Session.Get("LoginID");
                     return RedirectToAction("Index", "Home");
                 }
                 else
@@ -72,31 +69,31 @@ namespace OnLineClothing.Controllers
         //Sign up validation and logic for storing in database.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Signup([Bind()] UserDisplay user)
+        public IActionResult Signup([Bind()] LoginViewModel user)
         {
             ViewBag.DuplicateUsername = "";
             ViewBag.ComplexPassword = "";
 
-            if (Utilities.PasswordCheck(user.login.PasswordHash))
+            if (Utilities.PasswordCheck(user.login[0].PasswordHash))
             {
-                if (!Utilities.DuplicateUsername(user.login.UserName, _context))
+                if (!Utilities.DuplicateUsername(user.login[0].UserName, _context))
                 {
 
 
-                    user.login.PasswordSalt = Utilities.GenerateSalt();
-                    user.login.PasswordHash = Utilities.Hash(user.login.PasswordHash + user.login.PasswordSalt);
-                    user.login.Rights = "normal";
+                    user.login[0].PasswordSalt = Utilities.GenerateSalt();
+                    user.login[0].PasswordHash = Utilities.Hash(user.login[0].PasswordHash + user.login[0].PasswordSalt);
+                    user.login[0].Rights = "normal";
 
 
-                    _context.Login.Add(user.login);
+                    _context.Login.Add(user.login[0]);
                     _context.SaveChanges();
 
                     var LoginID = from u in _context.Login
-                                  where u.PasswordHash.Equals(user.login.PasswordHash) && u.UserName.Equals(user.login.UserName)
+                                  where u.PasswordHash.Equals(user.login[0].PasswordHash) && u.UserName.Equals(user.login[0].UserName)
                                   select u.ID;
 
-                    user.users.LoginID = LoginID.First();
-                    _context.Users.Add(user.users);
+                    user.users[0].LoginID = LoginID.First();
+                    _context.Users.Add(user.users[0]);
                     _context.SaveChanges();
 
 

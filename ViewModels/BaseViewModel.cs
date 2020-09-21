@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace OnLineClothing.ViewModels
 {
-    public class UserDisplay
+    public class BaseViewModel
     {
-        public string password { get; set; }
-
-        public Login login { get; set; }
-        public Users users { get; set; }
+        public List<Login> login { get; set; }
+        public List<Users> users { get; set; }
+        public List<Cart> cart { get; set; }
     }
 }

@@ -96,3 +96,4 @@ $(".signup-input :input").focusout(function () {
     $(this).valid();
 
 })
+

@@ -11,7 +11,5 @@ namespace OnLineClothing.Models
         public int LoginID { get; set; }
         public int ItemID { get; set; }
         public int Quantity { get; set; } 
-        public DateTime OrderDate { get; set; }
-        public decimal Total { get; set; }
     }
 }
